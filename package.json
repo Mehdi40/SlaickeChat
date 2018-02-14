@@ -1,0 +1,69 @@
+{
+  "name": "slaicke",
+  "version": "1.0.0",
+  "description": "Slaicke is a Slack-like team chat running on web browsers",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon bin/www.js --exec babel-node --presets env",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mehdi40/SlackLike.git"
+  },
+  "keywords": [
+    "chat",
+    "team",
+    "slack",
+    "discord",
+    "slack-like",
+    "teamchat",
+    "team",
+    "chat"
+  ],
+  "author": "Mehdi LAFENETRE",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mehdi40/SlackLike/issues"
+  },
+  "homepage": "https://github.com/Mehdi40/SlackLike#readme",
+  "dependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "cluster": "^0.7.7",
+    "connect-redis": "^3.3.2",
+    "cookie-parser": "^1.4.3",
+    "debug": "^3.1.0",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "express-validation": "^1.0.2",
+    "express-validator": "^4.3.0",
+    "jade": "^1.11.0",
+    "joi": "^13.0.2",
+    "marked": "^0.3.7",
+    "mongoose": "^4.13.6",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.12.1",
+    "os": "^0.1.1",
+    "passport": "^0.4.0",
+    "passport-facebook": "^2.1.1",
+    "passport-google": "^0.3.0",
+    "passport-local": "^1.0.0",
+    "passport-twitter": "^1.0.4",
+    "redis": "^2.8.0",
+    "slug": "^0.9.1",
+    "socket.io": "^2.0.4",
+    "socket.io-redis": "^5.2.0",
+    "sticky-session": "^1.1.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.12.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.5.1"
+  }
+}

@@ -1,0 +1,51 @@
+doctype html
+html
+  block vars
+  head
+    title= title
+    link(rel='stylesheet', href='/static/stylesheet/style.css')
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css")
+    link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css")
+    link(rel="stylesheet", href="/static/stylesheet/compiled.css")
+  body
+    .header
+      .team-menu Slaicke
+      .channel-menu
+        span.channel-menu_name
+          span.channel-menu_prefix #
+          |                 Admin
+    .main
+      .listings
+        .listings_channels
+          h2.listings_header Channels
+          ul.channel_list
+            each roome in rooms
+              li.channel.active
+                a.channel_name
+                  span.unread= roome.numberOfUsers
+                  span
+                    span.prefix= "#" + roome.name
+        .listings_direct-messages
+          h2.listings_header Direct Messages
+          ul.channel_list
+            li.channel
+                a.channel_name
+                  span.unread 20
+                  span
+                    span.prefix 
+                    | kryton
+
+  .panel.panel-default
+          .panel-heading
+              form.form-horizontal(action="/room/create", method="POST")
+                  .form-group
+                      .label.col-md-2(for="room")
+                      .input-group
+                          input#room(name="name", type="text", placeholder="Room name")
+                          input.btn.btn-default(type="submit", value="Go !")
+    block content
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js")
+    script(defer src="https://use.fontawesome.com/releases/v5.0.1/js/all.js")
+    script(src="/static/javascript/socket.js")

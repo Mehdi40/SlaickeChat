@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#admin {
+  color: red
+}
+
+#superadmin {
+  color: darkgreen
+}
+
+#user {
+  color: darkorchid
+}
+
+.update {
+  display: inline-block
+}

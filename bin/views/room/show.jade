@@ -1,0 +1,55 @@
+extends ../layout
+
+block vars
+  - var rooms = rooms
+
+block content
+  .message-history
+    if room.messages
+      each message in room.messages
+        .message
+          a.message_profile-pic(href='')
+          a.message_username(href='')= message.user.username
+          span.message_timestamp= message.dateLastUpdate
+          span.message_star
+          span.message_content= message.content
+
+  .user-list
+    if roomUsers
+      ul
+        each user in roomUsers
+          if user
+            li(id= user._id)
+              span(id= user.role)= user.username
+
+  .message-list
+    if room.messages
+      ul
+        each message in room.messages
+          li(id= message._id)
+            span(id= message.user.role)= message.user.username + ' : '
+            if (message.content)
+            span.update!= md(message.content)
+            if message.emote
+              each emote in message.emote
+                p= emote.type
+            if message.user.username == user.username || ['admin', 'superadmin'].includes(user.role) 
+              a(href= '/message/' + message._id + '/delete')
+                i(class="fas fa-trash-alt")
+            if ['admin', 'superadmin'].includes(user.role)
+              a(href= '/user/' + message.user._id + '/kick/' + room._id)
+                i(class="fas fa-ban")
+            a(href= '/emote/send/' + message._id)
+              i(class="fas fa-smile")
+
+
+
+  .panel.panel-default
+        .panel-heading
+            form.form-horizontal(action="/message/send", method="POST")
+                .form-group
+                    .label.col-md-2(for="message")
+                    .input-group
+                        input#message(name="content", type="text", placeholder="What are you up to today?")
+                        input(type="hidden", name="room", value="#{room.name}")
+                        input.btn.btn-default(type="submit", value="Go !")

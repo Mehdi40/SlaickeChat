@@ -1,0 +1,43 @@
+doctype html
+html
+  block vars
+  head
+    title= title
+    link(rel='stylesheet', href='/static/stylesheet/style.css')
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css")
+    link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css")
+    link(rel="stylesheet", href="/static/stylesheet/compiled.css")
+  body
+    .container
+        .row
+            .col-md-4
+            .col-md-4
+                .card(style="padding: 20px;")
+                    form(action="/auth/login", method="POST", style="text-align: center;")
+                        .form-group
+                            input(type='text', name='username' class='form-control', placeholder='Username',required, autofocus)
+                        .form-group
+                            input(type='password', name='password' class='form-control', placeholder='Password', required)
+                        .form-group
+                            button(class='btn btn-primary btn-block', type='submit') Sign in
+                    a(href='/auth/signup') Create a new account
+                    br
+                    .form-group
+                        a.btn.btn-block.btn-social.btn-twitter(href="/auth/login/twitter")
+                            i(class="fab fa-twitter-square")
+                            |  Sign in with Twitter
+                            .form-group
+                        a.btn.btn-block.btn-social.btn-twitter(href="/auth/auth/google")
+                            i(class="fab fa-twitter-square")
+                            |  Sign in with Google
+                    .form-group
+                        a.btn.btn-block.btn-social.btn-facebook(href="/auth/facebook")
+                            i(class="fab fa-twitter-square")
+                            |  Sign in with facebook
+            .col-md-4
+    block content
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js")
+    script(defer src="https://use.fontawesome.com/releases/v5.0.1/js/all.js")
+    script(src="/static/javascript/socket.js")
